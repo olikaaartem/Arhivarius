@@ -1,0 +1,1320 @@
+/* =======================================
+   БАЗА СТОРІНКИ
+======================================= */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Georgia, serif;
+  background-color: #000;
+  color: #f3ead7;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* =======================================
+   ЗАГАЛЬНІ НАЛАШТУВАННЯ СТОРІНОК
+======================================= */
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Спільна логіка фону для всіх сторінок */
+.cover,
+.page-tom1,
+.page-tom2,
+.page-tom3,
+.page-tom4,
+.page-tom5,
+.page-final {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  background-position: top center;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  background-color: #000;
+}
+
+/* Декоративні шари не блокують кліки */
+.page-dark,
+.dark-layer,
+.cover::after,
+.overlay::before,
+.overlay::after {
+  pointer-events: none;
+}
+
+/* =======================================
+   СТОРІНКА 1 / ОБКЛАДИНКА
+======================================= */
+
+.cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background-image: url("https://i.postimg.cc/RCRGpGvM/C5E9B0C0-9E05-47AD-963D-E2E674A002CC.png");
+}
+
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.20) 0%,
+    rgba(0, 0, 0, 0.50) 45%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+  z-index: 1;
+}
+
+.dark-layer {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  z-index: 1;
+}
+
+.overlay {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px;
+  color: #f3ead7;
+  background: rgba(16, 10, 8, 0.56);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-sizing: border-box;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 6px 12px;
+  border: 2px solid #a22;
+  color: #d65b5b;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background: rgba(80, 0, 0, 0.1);
+  transform: rotate(-4deg);
+}
+
+.title {
+  margin: 0 0 10px 0;
+  font-size: 40px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #f3ead7;
+}
+
+.subtitle {
+  margin: 0 0 22px 0;
+  font-size: 24px;
+  color: #f0d79e;
+}
+
+.text p {
+  margin: 0 0 18px 0;
+  font-size: 20px;
+  line-height: 1.65;
+  color: #f3ead7;
+}
+
+/* =======================================
+   МЕРЕХТЛИВИЙ ЗАГОЛОВОК
+======================================= */
+
+.flicker-title {
+  position: relative;
+  color: #f0d79e;
+  text-shadow:
+    0 0 6px rgba(255, 220, 120, 0.9),
+    0 0 14px rgba(255, 220, 120, 0.6),
+    0 0 24px rgba(255, 220, 120, 0.4);
+  animation: flickerTitle 2s infinite, glitchTitle 3s infinite;
+}
+
+@keyframes flickerTitle {
+  0%   { opacity: 1; }
+  5%   { opacity: 0.4; }
+  10%  { opacity: 1; }
+  15%  { opacity: 0.3; }
+  20%  { opacity: 1; }
+  50%  { opacity: 0.85; }
+  55%  { opacity: 0.2; }
+  60%  { opacity: 1; }
+  80%  { opacity: 0.6; }
+  85%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes glitchTitle {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(-1px, 1px); }
+  40%  { transform: translate(1px, -1px); }
+  60%  { transform: translate(-1px, 0); }
+  80%  { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+/* =======================================
+   ФОНИ ТОМІВ
+======================================= */
+
+.page-tom1,
+.page-tom2 {
+  background-image: url("https://i.postimg.cc/6pJsMhdj/60D6E851-F0FC-4168-BDDC-079DE7904F32.png");
+}
+
+.page-tom3,
+.page-tom5,
+.page-final {
+  background-image: url("https://i.postimg.cc/pr3rd1p4/7CC387CF-8452-4125-A678-58FCABC5A0C6.png");
+}
+
+.page-tom4 {
+  background-image: url("https://i.postimg.cc/rmrScbyG/1966272D-2A9D-4872-8B90-B9ECABA5D49E.png");
+}
+
+.page-dark {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.46);
+  z-index: 1;
+}
+
+/* =======================================
+   КОНТЕЙНЕР КОНТЕНТУ
+======================================= */
+
+.content.archive-file,
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+  color: #f3ead7;
+  box-sizing: border-box;
+}
+
+.archive-file {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* =======================================
+   ШАПКА ТОМА
+======================================= */
+
+.archive-head {
+  position: relative;
+  margin-bottom: 28px;
+  padding: 24px;
+  background: rgba(20, 10, 8, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(2px);
+}
+
+.archive-volume {
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #caa46a;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.archive-head h1 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: #f3ead7;
+}
+
+.archive-line {
+  width: 140px;
+  height: 2px;
+  margin-top: 14px;
+  background: rgba(202, 164, 106, 0.8);
+}
+
+.archive-stamp {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  padding: 6px 12px;
+  border: 2px solid #a22;
+  color: #d45d5d;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transform: rotate(-6deg);
+  background: rgba(80, 0, 0, 0.08);
+}
+
+/* =======================================
+   СЛУЖБОВІ БЛОКИ / ТЕОРІЯ
+======================================= */
+
+.note-box {
+  margin-bottom: 28px;
+  padding: 22px;
+  background: rgba(24, 14, 11, 0.80);
+  border-left: 4px solid #c7aa6a;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(3px);
+}
+
+.note-title {
+  margin-bottom: 12px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #f0d79e;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.note-status {
+  margin-bottom: 12px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #ffcc66;
+}
+
+.note-subtitle {
+  display: block;
+  position: relative;
+  z-index: 5;
+  margin: 18px 0 14px;
+  padding-left: 14px;
+  border-left: 3px solid #ffe28a;
+  font-size: clamp(22px, 4vw, 40px);
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffe28a;
+  text-shadow:
+    0 0 5px rgba(255, 220, 120, 0.9),
+    0 0 12px rgba(255, 220, 120, 0.6),
+    0 0 20px rgba(255, 220, 120, 0.3);
+  animation: flicker404 2s infinite, glitch404 3s infinite;
+}
+
+@keyframes flicker404 {
+  0%   { opacity: 1; }
+  5%   { opacity: 0.45; }
+  10%  { opacity: 1; }
+  15%  { opacity: 0.35; }
+  20%  { opacity: 1; }
+  50%  { opacity: 0.85; }
+  55%  { opacity: 0.25; }
+  60%  { opacity: 1; }
+  80%  { opacity: 0.65; }
+  85%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes glitch404 {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(-1px, 1px); }
+  40%  { transform: translate(1px, -1px); }
+  60%  { transform: translate(-1px, 0); }
+  80%  { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+.note-warning {
+  margin-top: 14px;
+  font-weight: bold;
+  color: #e8d8b0;
+}
+
+.note-box p,
+.note-list li,
+.mini-theory p,
+.theory-block p {
+  color: #f3ead7;
+  line-height: 1.7;
+}
+
+.note-list {
+  margin: 0 0 16px 20px;
+  padding: 0;
+}
+
+.theory-block {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 18px 20px;
+  border-left: 3px solid #ffd700;
+  background: rgba(18, 14, 12, 0.82);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-right: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(3px);
+}
+
+.theory-title {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #ffd700;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* =======================================
+   КАРТКИ ФАЙЛІВ / КЕЙСІВ
+======================================= */
+
+.case-card,
+.cipher-file-card {
+  position: relative;
+  margin-bottom: 18px;
+  padding: 20px;
+  background: rgba(27, 16, 12, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+}
+
+.case-top,
+.file-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+}
+
+.file-header h3 {
+  font-weight: 600;
+  margin: 0;
+}
+
+.case-country {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #f8dfad;
+}
+
+.case-year {
+  font-size: 14px;
+  color: #d1b88a;
+}
+
+.case-clue {
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.case-label {
+  margin-bottom: 6px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #cfb98f;
+  text-transform: uppercase;
+}
+
+.case-text,
+.mini-theory {
+  line-height: 1.7;
+  color: #f3ead7;
+  margin-bottom: 10px;
+}
+
+.mini-theory {
+  font-size: 14px;
+}
+
+.letter-badge {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid #c9a94f;
+  color: #e6d08d;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(201, 169, 79, 0.08);
+}
+
+.visual-answer-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+/* =======================================
+   INPUT
+======================================= */
+
+.case-card label,
+.cipher-file-card label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #cfb98f;
+  text-transform: uppercase;
+}
+
+.case-card input,
+.cipher-file-card input,
+.ready-box input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-size: 15px;
+  margin: 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.case-card input::placeholder,
+.cipher-file-card input::placeholder,
+.ready-box input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+/* =======================================
+   КНОПКИ
+======================================= */
+
+.open-btn,
+.mini-btn,
+.check-btn,
+.nav-btn,
+.cipher-file-card button,
+.ready-box button,
+.word-task button,
+button,
+.final-link-btn,
+.hint-btn {
+  display: inline-block;
+  position: relative;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.04);
+  color: #f3ead7;
+  border: 1px solid rgba(255, 204, 0, 0.35);
+  box-shadow: none;
+  border-radius: 0;
+  padding: 10px 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.open-btn:hover,
+.mini-btn:hover,
+.check-btn:hover,
+.nav-btn:hover,
+.cipher-file-card button:hover,
+.ready-box button:hover,
+.word-task button:hover,
+button:hover,
+.final-link-btn:hover,
+.hint-btn:hover {
+  background: rgba(255, 204, 0, 0.08);
+  color: #fff3c4;
+  border-color: #ffcc00;
+  transform: none;
+  box-shadow: none;
+}
+
+.open-btn:active,
+.mini-btn:active,
+.check-btn:active,
+.nav-btn:active,
+.cipher-file-card button:active,
+.ready-box button:active,
+.word-task button:active,
+button:active,
+.final-link-btn:active,
+.hint-btn:active {
+  transform: scale(0.98);
+}
+
+.disabled-btn,
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(243, 234, 215, 0.6);
+  border-color: rgba(255, 204, 0, 0.18);
+  box-shadow: none;
+}
+
+.nav-btn {
+  min-width: 140px;
+}
+
+/* =======================================
+   БЛОКИ ЗАВДАНЬ
+======================================= */
+
+.word-task {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.encoded-word {
+  font-weight: bold;
+  color: #f8dfad;
+  letter-spacing: 1px;
+  word-break: break-word;
+}
+
+.word-result,
+.case-status,
+.result-box {
+  font-weight: bold;
+  color: #f0d79e;
+}
+
+/* =======================================
+   READY / DONE / STORY
+======================================= */
+
+.story-box,
+.ready-box,
+.file-done {
+  margin-top: 14px;
+  padding: 14px;
+  background: rgba(20, 10, 8, 0.78);
+  border-left: 3px solid #c7aa6a;
+  backdrop-filter: blur(2px);
+}
+
+.story-title,
+.ready-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #f0d79e;
+}
+
+.fact-box {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #d1b88a;
+}
+
+.file-done {
+  color: #bfe4a7;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* =======================================
+   НАВІГАЦІЯ
+======================================= */
+
+.nav-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  gap: 16px;
+}
+
+/* =======================================
+   СТАТУС ПОЛІВ
+======================================= */
+
+.correct-input {
+  border: 1px solid #9be28f !important;
+  box-shadow: 0 0 12px rgba(155, 226, 143, 0.35);
+  background: rgba(80, 140, 80, 0.12) !important;
+}
+
+.wrong-input {
+  border: 1px solid #ff6b6b !important;
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.25);
+  background: rgba(140, 60, 60, 0.12) !important;
+}
+
+/* =======================================
+   POPUP
+======================================= */
+
+.access-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  background: rgba(20, 40, 20, 0.95);
+  border: 1px solid #9be28f;
+  color: #dff7d9;
+  padding: 14px 18px;
+  box-shadow: 0 0 20px rgba(155, 226, 143, 0.25);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* =======================================
+   ПІДКАЗКИ
+======================================= */
+
+.hint-box {
+  margin: 10px 0 15px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 2px solid #888;
+  color: #d3c7ab;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.hidden-hint {
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.24);
+  text-align: right;
+  font-style: italic;
+  transition: 0.3s;
+}
+
+.hidden-hint:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.secret-hint {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  margin-top: 10px;
+  padding: 0 16px;
+  background: rgba(20, 12, 10, 0.92);
+  border-left: 3px solid #c7aa6a;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-right: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition:
+    max-height 0.4s ease,
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    padding 0.35s ease;
+}
+
+.secret-hint.open {
+  max-height: 240px;
+  opacity: 1;
+  transform: translateY(0);
+  padding: 14px 16px;
+}
+
+.secret-hint::before {
+  content: "ARCHIVE FILE OPENED";
+  display: block;
+  margin-bottom: 8px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.25);
+}
+
+.secret-hint-title {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #f0d79e;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.secret-hint-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #f3ead7;
+}
+
+.secret-hint-text.secondary {
+  color: #d8ccb2;
+  opacity: 0.92;
+}
+
+/* =======================================
+   ЗОБРАЖЕННЯ
+======================================= */
+
+.zoom-img {
+  width: 100%;
+  max-width: 400px;
+  cursor: zoom-in;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.zoom-img:hover {
+  transform: scale(1.03);
+}
+
+.visual-task {
+  margin-bottom: 25px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.38);
+}
+
+.osint-img {
+  max-width: 100%;
+  width: 440px;
+  border: 1px solid rgba(255,255,255,0.18);
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+  display: block;
+  margin: 10px 0 16px;
+}
+
+.osint-img.zoomed {
+  width: min(96vw, 1200px);
+  max-width: none;
+  position: relative;
+  z-index: 20;
+  display: block;
+  margin: 10px auto 20px;
+  cursor: zoom-out;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+/* =======================================
+   МАТРИЦЯ / ТОМ 4
+======================================= */
+
+.matrix-wrap {
+  margin-top: 24px;
+}
+
+.safe-matrix {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  gap: 5px;
+  margin-top: 15px;
+}
+
+.safe-cell {
+  min-height: 34px;
+  padding: 4px 0;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 204, 0, 0.65);
+  color: #fffef6;
+  font-size: 15px;
+  font-weight: 800;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.safe-cell:hover {
+  background: rgba(255, 204, 0, 0.22);
+  border-color: #ffd84d;
+}
+
+.safe-cell.correct {
+  background: rgba(255, 204, 0, 0.22);
+  border-color: #ffe27a;
+  color: #fff3b0;
+  text-decoration: line-through;
+  box-shadow: inset 0 0 10px rgba(201, 169, 77, 0.55);
+  transform: scale(0.96);
+}
+
+.safe-cell.locked {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.target-digits-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.target-digit {
+  min-width: 34px;
+  padding: 8px 10px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: #f3ead7;
+  font-weight: bold;
+  position: relative;
+}
+
+.target-digit.found {
+  color: #9be28f;
+  border-color: #9be28f;
+  background: rgba(80,140,80,0.16);
+}
+
+.target-digit.found::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 50%;
+  height: 2px;
+  background: #9be28f;
+  transform: rotate(-12deg);
+}
+
+#tom4FinalWord {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #f3ead7;
+  font-size: 16px;
+  outline: none;
+  transition: 0.2s;
+  box-sizing: border-box;
+}
+
+#tom4FinalWord::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+#tom4FinalWord:focus {
+  border-color: #c7aa6a;
+  box-shadow: 0 0 10px rgba(199,170,106,0.3);
+}
+
+/* =======================================
+   БУКВИ-ПІДКАЗКИ В ДОКУМЕНТІ
+======================================= */
+
+.code-letter {
+  color: #1b140d;
+  font-weight: 900;
+  padding: 0 4px;
+  background: rgba(255, 226, 138, 0.9);
+  border-radius: 2px;
+}
+
+/* =======================================
+   СЕЙФ
+======================================= */
+
+.safe-scene {
+  margin: 26px 0;
+  padding: 24px;
+  background: rgba(20,10,8,0.72);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-left: 4px solid #c7aa6a;
+}
+
+.safe-title {
+  margin-bottom: 16px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: #f0d79e;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.safe-box {
+  position: relative;
+  width: 260px;
+  height: 180px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, #4a4a4a, #2b2b2b);
+  border: 4px solid #777;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  overflow: visible;
+}
+
+.safe-door {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 52%;
+  height: 100%;
+  background: linear-gradient(145deg, #5e5e5e, #383838);
+  border-right: 3px solid #222;
+  transform-origin: left center;
+  transition: transform 1.2s ease;
+  z-index: 3;
+}
+
+.safe-box.opened .safe-door {
+  transform: perspective(800px) rotateY(-105deg);
+}
+
+.safe-wheel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  transform: translate(-50%, -50%);
+  border: 4px solid #d4b56a;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.safe-wheel::before,
+.safe-wheel::after {
+  content: "";
+  position: absolute;
+  background: #d4b56a;
+}
+
+.safe-wheel::before {
+  width: 4px;
+  height: 34px;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.safe-wheel::after {
+  height: 4px;
+  width: 34px;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+}
+
+.safe-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #171717;
+  z-index: 1;
+}
+
+.safe-paper {
+  padding: 14px 18px;
+  background: #e8dcc0;
+  color: #2c2218;
+  font-weight: bold;
+  transform: translateY(16px);
+  opacity: 0;
+  transition: all 0.9s ease 0.6s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.safe-box.opened .safe-paper {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* =======================================
+   ШТАМП RASP
+======================================= */
+
+.stamp-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  height: 80px;
+  position: relative;
+}
+
+.stamp {
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 8px;
+  padding: 10px 30px;
+  border: 3px solid #c7aa6a;
+  color: #c7aa6a;
+  background: rgba(0,0,0,0.6);
+  transform: translateY(-120px) scale(1.4) rotate(-8deg);
+  opacity: 0;
+}
+
+.stamp.show {
+  animation: stampDrop 0.7s ease forwards;
+}
+
+@keyframes stampDrop {
+  0% {
+    transform: translateY(-120px) scale(1.4) rotate(-8deg);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(10px) scale(1) rotate(-3deg);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-5px) scale(1) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(-2deg);
+    opacity: 1;
+  }
+}
+
+/* =======================================
+   КІНО-ЕФЕКТ ЗАКРИТТЯ АРХІВУ
+======================================= */
+
+.archive-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(20,20,20,0.85) 0%, rgba(0,0,0,0.98) 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+  z-index: 99999;
+}
+
+.archive-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.archive-cinematic-text {
+  max-width: 820px;
+  padding: 30px;
+  text-align: center;
+  color: #f3ead7;
+}
+
+.archive-cinematic-line {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: cinematicFade 0.8s ease forwards;
+  font-size: 26px;
+  line-height: 1.7;
+  letter-spacing: 1.5px;
+}
+
+.archive-cinematic-line.main {
+  font-size: 34px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: #9be28f;
+  margin-bottom: 18px;
+}
+
+.archive-cinematic-line.small {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #d7cfbe;
+}
+
+.archive-cinematic-line:nth-child(1) { animation-delay: 0.2s; }
+.archive-cinematic-line:nth-child(2) { animation-delay: 0.9s; }
+.archive-cinematic-line:nth-child(3) { animation-delay: 1.5s; }
+.archive-cinematic-line:nth-child(4) { animation-delay: 2.1s; }
+
+@keyframes cinematicFade {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =======================================
+   АДАПТАЦІЯ
+======================================= */
+
+@media (max-width: 768px) {
+  .cover,
+  .page-tom1,
+  .page-tom2,
+  .page-tom3,
+  .page-tom4,
+  .page-tom5,
+  .page-final {
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+  }
+
+  .cover {
+    padding: 30px 0;
+  }
+
+  .overlay {
+    max-width: none;
+    margin-left: 16px;
+    margin-right: 16px;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .text p {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .content.archive-file,
+  .content {
+    padding: 20px 14px 50px;
+  }
+
+  .archive-head h1 {
+    font-size: 24px;
+  }
+
+  .archive-stamp {
+    position: static;
+    display: inline-block;
+    margin-bottom: 12px;
+    transform: rotate(-4deg);
+  }
+
+  .word-task,
+  .visual-answer-row {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-row {
+    flex-direction: column;
+  }
+
+  .nav-btn,
+  .open-btn,
+  .check-btn,
+  .mini-btn,
+  .final-link-btn,
+  .hint-btn {
+    width: 100%;
+  }
+
+  .note-subtitle {
+    font-size: clamp(28px, 8vw, 44px);
+    letter-spacing: 2px;
+    padding-left: 12px;
+  }
+
+  .safe-matrix {
+    grid-template-columns: repeat(15, 1fr);
+    gap: 4px;
+  }
+
+  .safe-cell {
+    min-height: 28px;
+    font-size: 12px;
+  }
+
+  .osint-img {
+    width: 100%;
+  }
+
+  .archive-cinematic-line.main {
+    font-size: 26px;
+  }
+
+  .archive-cinematic-line {
+    font-size: 20px;
+  }
+
+  .archive-cinematic-line.small {
+    font-size: 16px;
+  }
+}
+/* 1 СТОРІНКА */
+#screen1.cover {
+  background-size: cover !important;
+  background-position: center top !important;
+}
+
+/* ОСТАННЯ СТОРІНКА */
+#screen7.page-final {
+  background-size: cover !important;
+  background-position: center top !important;
+}
+/* =======================================
+   ФІКС 1 І 7 СТОРІНКИ
+======================================= */
+
+/* 1 сторінка */
+.cover {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 70px 20px 140px;
+  box-sizing: border-box;
+
+  background-image: url("https://i.postimg.cc/RCRGpGvM/C5E9B0C0-9E05-47AD-963D-E2E674A002CC.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-color: #000;
+}
+
+#screen1 .overlay {
+  margin: 0 auto;
+  max-width: 560px;
+  width: 100%;
+}
+
+/* 7 сторінка */
+#screen7.page-final {
+  min-height: 100vh;
+  padding: 70px 20px 140px;
+  box-sizing: border-box;
+
+  background-image: url("https://i.postimg.cc/pr3rd1p4/7CC387CF-8452-4125-A678-58FCABC5A0C6.png");
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center top !important;
+  background-color: #000;
+}
+
+#screen7 .content.archive-file {
+  margin: 0 auto;
+}
